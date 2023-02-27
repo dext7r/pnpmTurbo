@@ -1,0 +1,41 @@
+name: test
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup timezone 🚀
+        uses: zcong1993/setup-timezone@master
+        with:
+          timezone: Asia/Shanghai
+      - name: Checkout 🚀
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Install pnpm  🚀
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+
+      - name: Install dependencies  🚀
+        if: steps.pnpm-cache.outputs.cache-hit != 'true'
+        run: pnpm install
+
+      - name: Setup Node.js 🚀
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install crawler  🚀
+        run: |
+          pnpm run build

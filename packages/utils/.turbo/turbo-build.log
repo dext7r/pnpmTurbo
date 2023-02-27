@@ -1,0 +1,10 @@
+
+> @h7ml/utils@1.0.0 build D:\work\h7ml\github\h7ml\pnpmTurbo\packages\utils
+> unbuild
+
+i Building @h7ml/utils
+√ Build succeeded for utils
+  dist/index.cjs (size: 92 B, exports: testFn)
+  dist/index.mjs (size: 71 B, exports: testFn)
+Σ Total dist size (byte size): 217 B
+

@@ -1,0 +1,16 @@
+
+> @h7ml/commitlint-config@1.0.0 build D:\work\h7ml\github\h7ml\pnpmTurbo\packages\commitlint-config
+> unbuild
+
+i Building @h7ml/commitlint-config
+Generated an empty chunk: "index".
+√ Build succeeded for commitlint-config
+  dist/index.cjs (size: 3.49 kB, exports: default)
+  dist/index.mjs (size: 3.48 kB, exports: default)
+Σ Total dist size (byte size): 6.98 kB
+
+
+ WARN  Build is done with some warnings:
+
+- Potential missing package.json files: dist/index.js
+
