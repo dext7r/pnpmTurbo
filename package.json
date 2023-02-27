@@ -23,7 +23,8 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git",
-      "useEmoji": true
+      "useEmoji": true,
+      "czConfig": ".commitlintrc.js"
     }
   }
 }
