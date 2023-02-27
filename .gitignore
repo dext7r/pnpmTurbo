@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+.pnpm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+.eslintcache

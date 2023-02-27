@@ -1,0 +1,29 @@
+{
+  "name": "h7ml",
+  "version": "1.0.0",
+  "description": "pnpm turbo workspaces",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git cz",
+    "build": "turbo run build",
+    "changeset": "changeset && changeset version",
+    "release": "run-s build releaseOnly",
+    "releaseOnly": "changeset publish"
+  },
+  "keywords": [],
+  "author": "h7ml <h7ml@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cz-git": "^1.5.0",
+    "turbo": "^1.8.2"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "useEmoji": true
+    }
+  }
+}
