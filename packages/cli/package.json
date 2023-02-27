@@ -1,0 +1,62 @@
+{
+  "name": "@h7ml/cli",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "./bin/index.js",
+  "module": "./bin/index.js",
+  "types": "./bin/index.js",
+  "bin": {
+    "h7ml": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "node ./bin/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./bin/index.js",
+        "template-*"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "template-*"
+  ],
+  "author": "",
+  "license": "ISC",
+  "sideEffects": false,
+  "dependencies": {
+    "@antfu/eslint-config": "^0.35.3",
+    "@antfu/ni": "^0.20.0",
+    "@antfu/utils": "^0.7.2",
+    "@types/node": "^18.14.1",
+    "bumpp": "^9.0.0",
+    "eslint": "^8.34.0",
+    "esno": "^0.16.3",
+    "lint-staged": "^13.1.2",
+    "pnpm": "^7.27.1",
+    "rimraf": "^4.1.2",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^4.9.5",
+    "unbuild": "^1.1.2",
+    "vite": "^4.1.4",
+    "chalk-animation": "2.0.2",
+    "clear": "0.1.0",
+    "download-git-repo": "^3.0.2",
+    "figlet": "1.5.2",
+    "kolorist": "^1.6.0",
+    "ora": "^6.1.2",
+    "prompts": "^2.4.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "devDependencies": {
+    "pushstate-server": "^3.1.0"
+  }
+}
