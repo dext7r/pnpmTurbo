@@ -5,7 +5,7 @@ import clear from "clear";
 import chalkAnimation from "chalk-animation";
 import prompts from 'prompts'
 import downloadTpl from "../lib/operate.js";
-const templates = [{ title: 'vue-amis-admin', value: 'vue-amis-admin' }]
+const templates = [{ title: 'amis-admin-vue', value: 'amis-admin-vue' }]
 
 // 用户选择模板
 let res = await prompts([{

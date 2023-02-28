@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="//unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="//unpkg.com/lodash"></script>
+  <script src="//unpkg.com/react/umd/react.development.js"></script>
+  <script src="//unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <script src="//unpkg.com/axios"></script>
+<!--  <script src="//unpkg.com/monaco-editor/min/vs/loader.js"></script>-->
+  <script src="../lib/vue-amis-sdk.umd.min.js"></script>
+  <script src="//unpkg.com/browse/@fortawesome/fontawesome-free@5.15.3/js/all.js"></script>
+  <link rel="stylesheet" href="../lib/vue-amis-sdk.css">
+  <link rel="stylesheet" href="//unpkg.com/browse/@fortawesome/fontawesome-free@5.15.3/css/all.css">
+</head>
+<body>
+<div id="app">
+  <vue-amis-sdk
+    id='editorName'
+    theme='cxd'
+    className='is-fixed'
+    :preview='isPreview'
+    :isMobile='isMobile'
+    @onChange='onChange'
+    :value='schema'
+  />
+</div>
+</body>
+<script>
+  new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        isPreview: false,
+        isMobile: false,
+        schema: {}
+      }
+    },
+    components: {
+      VueAmisSdk: window.VueAmisSdk
+    },
+    created() {
+      console.log(`vue-amis-sdk version: ${window.VueAmisSdk.version} by ${window.VueAmisSdk.author}`)
+    },
+    methods: {
+      onChange(e) {
+        console.log(e)
+      }
+    }
+  })
+</script>
+</html>
