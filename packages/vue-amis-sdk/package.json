@@ -1,6 +1,6 @@
 {
   "name": "vue-amis-sdk",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "author": {
     "name": "h7ml",
     "mail": "h7ml@qq.com",
@@ -22,14 +22,7 @@
     "json",
     "schema"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "scripts": {
-    "prepare": "husky install",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "dev:build": "vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk --dest lib packages/index.js --report",
