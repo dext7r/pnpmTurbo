@@ -1,14 +1,42 @@
 {
   "name": "vue-amis-sdk",
   "version": "2.7.0",
-  "author": "h7ml <h7ml@qq.com>",
-  "private": true,
-  "license": "MIT",
+  "author": {
+    "name": "h7ml",
+    "mail": "h7ml@qq.com",
+    "github": "https://github.com/h7ml/vue-amis-sdk"
+  },
+  "private": false,
+  "license": "Apache-2.0",
   "main": "lib/vue-amis-sdk.umd.min.js",
   "description": "vue amis sdk",
+  "homepage": "//vue-amis-sdk.h7ml.cn",
+  "keywords": [
+    "amis",
+    "vue",
+    "vue-amis",
+    "amis-vue",
+    "vue-amis-sdk",
+    "amis-admin-vue",
+    "renderer",
+    "json",
+    "schema"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "scripts": {
+    "prepare": "husky install",
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
+    "dev:build": "vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk --dest lib packages/index.js --report",
+    "dev:start": "node scripts/dev.js",
+    "dev": "npm run dev:build && npm run dev:start",
+    "amis:updates": "ncu -u amis amis-editor amis-editor-core amis-ui",
+    "commit": "git-cz",
     "build": "rimraf lib && vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk --dest lib packages/index.js --report && cp ./examples/index.html ./lib/"
   },
   "publishConfig": {
@@ -18,6 +46,31 @@
   "files": [
     "lib"
   ],
+  "packageManager": "pnpm@7.3.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react",
+        "react-dom",
+        "webpack",
+        "@vue/cli-service",
+        "amis-editor"
+      ]
+    }
+  },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h7ml/vue-amis-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/h7ml/vue-amis-sdk/issues"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
     "amis": "2.7.3-beta.0",
@@ -25,31 +78,63 @@
     "amis-editor-core": "5.2.4-beta.31",
     "amis-ui": "2.7.3-beta.0",
     "axios": "^0.21.1",
-    "core-js": "^3.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vue": "^2.6.14",
     "vuera": "^0.2.7"
   },
+  "peerDependencies": {
+    "amis": "2.7.3-beta.0",
+    "amis-editor": "5.2.4-beta.31",
+    "amis-editor-core": "5.2.4-beta.31",
+    "amis-ui": "2.7.3-beta.0",
+    "vue": "^2.6.14",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@fortawesome/fontawesome-free": "^5.15.3"
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "chalk": "^5.2.0",
+    "commitizen": "^4.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "compression-webpack-plugin": "6.1.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
     "cz-git": "1.5.0",
     "file-loader": "^6.2.0",
+    "http-proxy-middleware": "^2.0.6",
+    "husky": "^8.0.3",
+    "npm-run-all": "^4.1.5",
+    "open-url-by-browser": "1.0.1",
     "postcss": "8.4",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "pushstate-server": "3.1.0",
     "rimraf": "^4.1.2",
     "sass": "~1.54.2",
     "sass-loader": "^10.2.0",
     "svg-inline-loader": "^0.8.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",
-    "webpack-bundle-analyzer": "^4.8.0"
+    "webpack": "4.46.0",
+    "webpack-bundle-analyzer": "^4.8.0",
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.1.0",
+    "core-js": "^3.8.3",
+    "npm-check-updates": "^16.0.5"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "vue": [
+      "vue-cli-service lint"
+    ]
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-git",
-      "czConfig": "./.commitlintrc.js"
+      "path": "node_modules/cz-customizable"
     }
   },
   "eslintConfig": {
