@@ -1,5 +1,18 @@
 import VueAmisSdk from './VueAmisSdk/index.js';
-import {Editor, ShortcutKey} from "amis-editor";
+import {
+  Editor,
+  MiniEditor,
+  RendererEditor,
+  BasicEditor,
+  CodeEditor,
+  VRenderer,
+  RegionWrapper,
+  IFramePreview as IFrameEditor,
+  SearchPanel,
+  ContainerWrapper,
+  AvailableRenderersPlugin,
+  ShortcutKey
+} from "amis-editor";
 import {ReactInVue} from "vuera";
 
 const VueAmisEditor = ReactInVue(Editor);
@@ -8,6 +21,16 @@ let components = [
   VueAmisEditor,
   VueAmisShortcutKey,
   VueAmisSdk,
+  MiniEditor,
+  RendererEditor,
+  BasicEditor,
+  CodeEditor,
+  VRenderer,
+  RegionWrapper,
+  IFrameEditor,
+  SearchPanel,
+  ContainerWrapper,
+  AvailableRenderersPlugin,
 ]
 
 const install = function (Vue) {

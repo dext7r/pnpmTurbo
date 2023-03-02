@@ -15,7 +15,7 @@ function resolve(dir) {
 module.exports = defineConfig({
     publicPath: './',
     devServer: {
-      host: "//127.0.0.1",
+      // host: "http://127.0.0.1",
       port: 3000,
       // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
       proxy: {
@@ -42,6 +42,11 @@ module.exports = defineConfig({
       plugins: [],
     },
     chainWebpack: config => {
+      config.merge({ // see https://github.com/baidu/amis/issues/5274#issuecomment-1240147983
+        resolve: {
+          conditionNames: ['require', 'node']
+        }
+      })
       if (process.env.BABEL_ENV =='production') {
         config.module
           .rule('js')
@@ -87,7 +92,7 @@ module.exports = defineConfig({
           // 'amis-ui': 'amisUi',
           // 'amis-core': 'amisCore',
           // 'amis-editor-core':'amisEditorCore',
-          'monaco-editor': 'monaco',
+          // 'monaco-editor': 'monaco',
           // 'amis-editor': 'amisEditor',
           // 'amis-editor-ui': 'amisEditorUi',
           // 'amis-theme-editor': 'amisThemeEditor',
@@ -98,11 +103,6 @@ module.exports = defineConfig({
           'axios': 'axios',
         }
         config.devtool = false;
-        config.merge({ // see https://github.com/baidu/amis/issues/5274#issuecomment-1240147983
-          resolve: {
-            conditionNames: ['require', 'node']
-          }
-        })
       }
     }
   }

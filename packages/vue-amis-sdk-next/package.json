@@ -1,6 +1,6 @@
 {
-  "name": "vue-amis-sdk",
-  "version": "2.7.9",
+  "name": "vue-amis-sdk-next",
+  "version": "2.7.1",
   "author": {
     "name": "h7ml",
     "mail": "h7ml@qq.com",
@@ -8,15 +8,16 @@
   },
   "private": false,
   "license": "Apache-2.0",
-  "main": "lib/vue-amis-sdk.umd.min.js",
-  "description": "vue amis sdk",
-  "homepage": "https://vue-amis-sdk.h7ml.cn",
+  "main": "lib/vue-amis-sdk-next.umd.min.js",
+  "description": "vue3 amis sdk",
+  "homepage": "https://vue-amis-sdk-next.h7ml.cn",
   "keywords": [
     "amis",
     "vue",
     "vue-amis",
     "amis-vue",
     "vue-amis-sdk",
+    "vue-amis-sdk-next",
     "amis-admin-vue",
     "renderer",
     "json",
@@ -25,12 +26,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "dev:build": "vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk --dest lib packages/index.js --report",
+    "dev:build": "vue-cli-service build --target lib --formats umd-min -name vvue-amis-sdk-next --dest lib packages/index.js --report",
     "dev:start": "node scripts/dev.js",
     "dev": "npm run dev:build && npm run dev:start",
     "amis:updates": "ncu -u amis amis-editor amis-editor-core amis-ui",
     "commit": "git-cz",
-    "build": "rimraf lib && vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk --dest lib packages/index.js --report && cp ./examples/index.html ./lib/"
+    "build": "rimraf lib && vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk-next --dest lib packages/index.js --report && cp ./examples/index.html ./lib/"
   },
   "publishConfig": {
     "access": "public",
@@ -66,15 +67,17 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "amis": "2.8.0",
+    "amis": "2.7.3-beta.0",
     "amis-editor": "5.2.4-beta.31",
     "amis-editor-core": "5.2.4-beta.31",
-    "amis-ui": "2.8.0",
+    "amis-ui": "2.7.3-beta.0",
     "axios": "^0.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vue": "^2.6.14",
-    "vuera": "^0.2.7"
+    "vuera": "^0.2.7",
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13"
   },
   "peerDependencies": {
     "amis": "2.7.3-beta.0",
@@ -87,8 +90,13 @@
     "@fortawesome/fontawesome-free": "^5.15.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
     "chalk": "^5.2.0",
     "compression-webpack-plugin": "6.1.1",
     "file-loader": "^6.2.0",
@@ -116,7 +124,7 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
+      "plugin:vue/vue3-essential",
       "eslint:recommended"
     ],
     "parserOptions": {
@@ -127,6 +135,7 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not dead",
+    "not ie 11"
   ]
 }
