@@ -26,12 +26,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "dev:build": "vue-cli-service build --target lib --formats umd-min -name vvue-amis-sdk-next --dest lib packages/index.js --report",
+    "dev:build": "vue-cli-service build --target lib --formats umd-min -name vvue-amis-sdk-next --dest lib ./packages/index.js --report",
     "dev:start": "node scripts/dev.js",
     "dev": "npm run dev:build && npm run dev:start",
     "amis:updates": "ncu -u amis amis-editor amis-editor-core amis-ui",
     "commit": "git-cz",
-    "build": "rimraf lib && vue-cli-service build --target lib --formats umd-min -name vue-amis-sdk-next --dest lib packages/index.js --report && cp ./examples/index.html ./lib/"
+    "build": " vue-cli-service build"
   },
   "publishConfig": {
     "access": "public",

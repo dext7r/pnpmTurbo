@@ -1,15 +1,33 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "name": "h7ml",
+  "version": "1.0.0",
+  "description": "H7ML is a HTML-like markup language that compiles to HTML.",
+  "ignore": [
+    "node_modules",
+    "dist",
+    "lib",
+    "docs"
+  ],
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "lib/**"
+      ]
     },
     "lint": {
-      "dependsOn": ["build"]
+      "dependsOn": [
+        "build"
+      ]
     },
     "dev": {
-      "dependsOn": ["lint"]
+      "dependsOn": [
+        "lint"
+      ]
     }
   }
 }
