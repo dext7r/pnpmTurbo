@@ -24,7 +24,7 @@ jobs:
       - name: Install pnpm  🚀
         uses: pnpm/action-setup@v2
         with:
-          version: 7
+          version: 7.3.0
           run_install: false
 
       - name: Install dependencies  🚀
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node.js 🚀
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16.19.1
 
       - name: Install crawler  🚀
         run: |
